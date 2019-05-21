@@ -8,15 +8,21 @@ class Vaca {
 	var property hambrienta = false
 	
 	
-	method comer(cantidad){ if (hambrienta) {  peso += cantidad / 2} }
+	method sediento(cantidad){ if (hambrienta) {  peso += cantidad / 2} }
+	
+	method comer(cuanto) { if (not self.tieneHambre()) { 
+				self.error("no tengo hambre") }
+	}
 	
 	method peso() { return peso }
 	
 	method beber() {peso-=1  tieneSed = true}
 	
-	method movimiento() { if (peso > 50) { peso*5 /100 } }
+	method movimiento() { peso = 50.max(peso * 0.95) }
 
-	method tienehambre() { if (peso < 200) { hambrienta = true }
+	method tieneHambre() { peso < 200 hambrienta = true }
+	
+	method subir() { position = position.up(1)}
 
 }
 
@@ -30,5 +36,17 @@ class Gallina {
 		{ return "tengo sed"} else { return "no tengo sed"}
 	}
 	
+	method tieneHambre() { return comidas % 2 == 0 }
+	
 	method beber(){     }
+}
+
+class Comedero(){
+	var property comida = 0
+	
+	method
+	
+	
+	
+
 }
